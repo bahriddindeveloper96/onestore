@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AttributeSeeder::class,
             ValueSeeder::class,
+            ProductSeeder::class,
         ]);
     }
 }

@@ -4,15 +4,17 @@ namespace App\Models;
 use App\Models\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Translatable\HasTranslations;
 class Value extends Model
 {
     use HasFactory, HasTranslations;
     protected $fillable = [
-        "name"
+        "name",
+        //"attribute",
     ];
-    public function attribute():BelongsTo
+    public array $translatable = ["name"];
+    public function attribute(): BelongsTo
     {
         return $this->belongsTo(Attribute::class);
     }

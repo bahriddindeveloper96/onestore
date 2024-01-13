@@ -3,6 +3,7 @@
 namespace App\Models;
 use App\Models\Category;
 use App\Models\Stock;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -17,12 +18,16 @@ class Product extends Model
         "price",
         "description"
     ];
-    public function category():BelongTo
+    public function category():BelongsTo
     {
-        return $this->belongTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
     public function stocks():HasMany
     {
         return $this->hasMany(Stock::class);
+    }
+    public function users():BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
     }
 }

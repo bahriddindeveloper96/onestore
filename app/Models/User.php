@@ -2,6 +2,8 @@
 
 namespace App\Models;
 use App\Models\Role;
+use App\Models\Product;
+
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -46,5 +48,10 @@ class User extends Authenticatable
     public function roles():BelongsToMany
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function favourites():BelongsToMany
+    {
+        return $this->belongsToMany(Product::class);
     }
 }
